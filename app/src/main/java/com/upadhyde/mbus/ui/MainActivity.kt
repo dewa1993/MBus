@@ -1,9 +1,10 @@
 package com.upadhyde.mbus.ui
 
 import android.os.Bundle
-import android.os.PersistableBundle
+import androidx.appcompat.app.AppCompatActivity
 import com.upadhyde.mbus.R
 import com.upadhyde.mbus.base.activity.AbstractActivity
+import javax.inject.Inject
 
 //
 // Created by dewashish on 24/12/2019.
@@ -11,8 +12,12 @@ import com.upadhyde.mbus.base.activity.AbstractActivity
 //
 class MainActivity : AbstractActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    @Inject
+    lateinit var mainNavigationController: MainNavigationController
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        mainNavigationController.navigateToSplash()
     }
 }
